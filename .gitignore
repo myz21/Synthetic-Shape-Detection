@@ -216,3 +216,14 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ── Project-specific ──────────────────────────────────────────────────
+# COCO dataset (büyük dosyalar – commit etme)
+data/
+
+# Eğitilmiş model ağırlıkları
+results/*.pth
+results/*.pt
+
+# Geçici notebook çıktıları
+*.ipynb_checkpoints/
