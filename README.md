@@ -123,6 +123,10 @@ The current direct path used during development was:
 
 If Kaggle finds that dataset, the notebooks can keep using the same project-relative `data/coco` path without manual path rewrites.
 
+This symlink is only a Kaggle convenience. It is not required on other machines if your COCO files already exist under `data/coco/`.
+
+If you prefer, you can also change the COCO root path in the notebooks and use a different local directory structure. The important part is that the code points to the correct `train2017`, `val2017`, and `annotations/` folders.
+
 ## Current Workflow
 
 The notebook is organized around the assignment steps:
