@@ -14,7 +14,7 @@ This repository uses `MS COCO 2017` as the natural-image background dataset and 
 
 ## Expected Data Layout
 
-The COCO dataset is not included in this repository. Place it in the following structure:
+The COCO dataset is not included in this repository. After setup, the project expects the following structure:
 
 ```text
 data/
@@ -25,6 +25,30 @@ data/
         ├── instances_train2017.json
         └── instances_val2017.json
 ```
+
+## COCO Setup
+
+This repository includes a helper script that downloads the required COCO 2017 files and creates the expected directory structure automatically.
+
+If you use `uv`:
+
+```bash
+uv run python -m src.setup_coco
+```
+
+If you use `pip`:
+
+```bash
+python -m src.setup_coco
+```
+
+This script downloads:
+
+- `train2017.zip`
+- `val2017.zip`
+- `annotations_trainval2017.zip`
+
+and extracts them into `data/coco/`.
 
 ## Environment
 
@@ -49,6 +73,7 @@ If you use `uv`:
 
 ```bash
 uv sync
+uv run python -m src.setup_coco
 uv run jupyter notebook
 ```
 
@@ -58,6 +83,7 @@ If you use `pip`:
 python -m venv .venv
 source .venv/bin/activate
 pip install -e .[dev]
+python -m src.setup_coco
 jupyter notebook
 ```
 
