@@ -4,6 +4,8 @@ Course project for `CENG428 Neural Networks`.
 
 This repository uses `MS COCO 2017` as the natural-image background dataset and adds synthetic shapes on top of COCO images. The current main workflow is notebook-based and lives in [notebook.ipynb](notebook.ipynb).
 
+Repository: [myz21/Synthetic-Shape-Detection](https://github.com/myz21/Synthetic-Shape-Detection)
+
 For submission-oriented runs, the project also includes a 3-notebook split:
 
 - [01_data_creation.ipynb](01_data_creation.ipynb)
@@ -16,10 +18,8 @@ For submission-oriented runs, the project also includes a 3-notebook split:
 - [01_data_creation.ipynb](01_data_creation.ipynb): dataset/synthetic generation notebook
 - [02_training.ipynb](02_training.ipynb): training notebook
 - [03_testing.ipynb](03_testing.ipynb): testing/evaluation notebook
-- [train.py](train.py): training pipeline skeleton
-- [src/dataset.py](src/dataset.py): dataset utilities
 - [ASSIGNMENT.md](ASSIGNMENT.md): preserved assignment text
-- [REPORT.md](REPORT.md): draft report template
+- [REPORT.md](REPORT.md): report draft to complete after running experiments
 - [links.txt](links.txt): placeholder file for public dataset/model links
 
 ## Expected Data Layout
