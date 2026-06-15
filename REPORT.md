@@ -1,6 +1,6 @@
 # Synthetic Shape Detection Report Draft
 
-## 1. Project Information
+## 1. Introduction
 
 - Course: `CENG428 Neural Networks`
 - Task: `Synthetic Shape Detection on MS COCO 2017`
@@ -84,7 +84,7 @@ Draft template:
 - Number of classes:
 - Reason for selection:
 
-## 7. Training Details
+## 7. Training Procedure
 
 Fill in:
 
@@ -168,7 +168,7 @@ For each experiment, include:
 - Results:
 - Interpretation:
 
-## 11. Visual Examples
+## 11. Prediction Visualizations
 
 Add:
 
@@ -198,7 +198,17 @@ Possible points:
 - better baseline
 - AP / mAP evaluation
 
-## 14. Submission Checklist
+## 14. Conclusion
+
+Summarize:
+
+- the final detection approach
+- the most important quantitative result
+- what worked well
+- what remained difficult for the model
+- the main next improvement you would make
+
+## 15. Submission Checklist
 
 - `README.md`
 - notebook or source code

@@ -2,15 +2,15 @@
 
 Course project for `CENG428 Neural Networks`.
 
-This repository uses `MS COCO 2017` as the natural-image background dataset and adds synthetic shapes on top of COCO images. The current main workflow is notebook-based and lives in [notebook.ipynb](/home/neo/Desktop/CENG%203.%20SENE%20HEPS%C4%B0/CENG428%20NEURAL%20NETWORKS/Synthetic-Shape-Detection/notebook.ipynb).
+This repository uses `MS COCO 2017` as the natural-image background dataset and adds synthetic shapes on top of COCO images. The current main workflow is notebook-based and lives in [notebook.ipynb](notebook.ipynb).
 
 ## Repository Contents
 
-- [notebook.ipynb](/home/neo/Desktop/CENG%203.%20SENE%20HEPS%C4%B0/CENG428%20NEURAL%20NETWORKS/Synthetic-Shape-Detection/notebook.ipynb): main development notebook
-- [train.py](/home/neo/Desktop/CENG%203.%20SENE%20HEPS%C4%B0/CENG428%20NEURAL%20NETWORKS/Synthetic-Shape-Detection/train.py): training pipeline skeleton
-- [src/dataset.py](/home/neo/Desktop/CENG%203.%20SENE%20HEPS%C4%B0/CENG428%20NEURAL%20NETWORKS/Synthetic-Shape-Detection/src/dataset.py): dataset utilities
-- [ASSIGNMENT.md](/home/neo/Desktop/CENG%203.%20SENE%20HEPS%C4%B0/CENG428%20NEURAL%20NETWORKS/Synthetic-Shape-Detection/ASSIGNMENT.md): preserved assignment text
-- [REPORT.md](/home/neo/Desktop/CENG%203.%20SENE%20HEPS%C4%B0/CENG428%20NEURAL%20NETWORKS/Synthetic-Shape-Detection/REPORT.md): draft report template
+- [notebook.ipynb](notebook.ipynb): main development notebook
+- [train.py](train.py): training pipeline skeleton
+- [src/dataset.py](src/dataset.py): dataset utilities
+- [ASSIGNMENT.md](ASSIGNMENT.md): preserved assignment text
+- [REPORT.md](REPORT.md): draft report template
 
 ## Expected Data Layout
 
@@ -30,7 +30,7 @@ data/
 
 Python `3.10+` is expected.
 
-Main dependencies are defined in [pyproject.toml](/home/neo/Desktop/CENG%203.%20SENE%20HEPS%C4%B0/CENG428%20NEURAL%20NETWORKS/Synthetic-Shape-Detection/pyproject.toml):
+Main dependencies are defined in [pyproject.toml](pyproject.toml):
 
 - `torch`
 - `torchvision`
@@ -61,7 +61,7 @@ pip install -e .[dev]
 jupyter notebook
 ```
 
-Then open [notebook.ipynb](/home/neo/Desktop/CENG%203.%20SENE%20HEPS%C4%B0/CENG428%20NEURAL%20NETWORKS/Synthetic-Shape-Detection/notebook.ipynb) and run the cells in order.
+Then open [notebook.ipynb](notebook.ipynb) and run the cells in order.
 
 ## Current Workflow
 
