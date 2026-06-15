@@ -4,13 +4,23 @@ Course project for `CENG428 Neural Networks`.
 
 This repository uses `MS COCO 2017` as the natural-image background dataset and adds synthetic shapes on top of COCO images. The current main workflow is notebook-based and lives in [notebook.ipynb](notebook.ipynb).
 
+For submission-oriented runs, the project also includes a 3-notebook split:
+
+- [01_data_creation.ipynb](01_data_creation.ipynb)
+- [02_training.ipynb](02_training.ipynb)
+- [03_testing.ipynb](03_testing.ipynb)
+
 ## Repository Contents
 
 - [notebook.ipynb](notebook.ipynb): main development notebook
+- [01_data_creation.ipynb](01_data_creation.ipynb): dataset/synthetic generation notebook
+- [02_training.ipynb](02_training.ipynb): training notebook
+- [03_testing.ipynb](03_testing.ipynb): testing/evaluation notebook
 - [train.py](train.py): training pipeline skeleton
 - [src/dataset.py](src/dataset.py): dataset utilities
 - [ASSIGNMENT.md](ASSIGNMENT.md): preserved assignment text
 - [REPORT.md](REPORT.md): draft report template
+- [links.txt](links.txt): placeholder file for public dataset/model links
 
 ## Expected Data Layout
 
@@ -88,6 +98,30 @@ jupyter notebook
 ```
 
 Then open [notebook.ipynb](notebook.ipynb) and run the cells in order.
+
+For the split submission workflow, run:
+
+1. [01_data_creation.ipynb](01_data_creation.ipynb)
+2. [02_training.ipynb](02_training.ipynb)
+3. [03_testing.ipynb](03_testing.ipynb)
+
+The split notebooks keep [notebook.ipynb](notebook.ipynb) intact as the all-in-one version.
+
+## Kaggle Note
+
+The split notebooks include a Kaggle setup cell that tries to detect an attached COCO dataset and create a local symlink:
+
+```text
+data/coco -> /kaggle/input/.../coco2017
+```
+
+The current direct path used during development was:
+
+```text
+/kaggle/input/datasets/awsaf49/coco-2017-dataset/coco2017
+```
+
+If Kaggle finds that dataset, the notebooks can keep using the same project-relative `data/coco` path without manual path rewrites.
 
 ## Current Workflow
 

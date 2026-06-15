@@ -1,0 +1,5 @@
+Synthetic train/test data zip:
+PASTE_PUBLIC_LINK_HERE
+
+Model file:
+PASTE_PUBLIC_LINK_HERE
