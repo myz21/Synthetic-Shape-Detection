@@ -9,36 +9,15 @@
 
 ## 2. Dataset Preparation
 
-Describe:
-
-- where `MS COCO 2017` was placed
-- how `torchvision.datasets.CocoDetection` was used
-- why COCO labels were not used as target labels
-- how natural images were used only as backgrounds
-
-Draft notes:
-
-- COCO `train2017` and `val2017` were used as required by the assignment.
-- The dataset was loaded with `CocoDetection`.
-- Original COCO object annotations were not used as training targets.
-- Synthetic shapes were added on top of COCO images, and the labels came from those synthetic additions.
+MS COCO 2017 was used as the required natural-image source dataset. The repository assumes the standard directory structure under `data/coco/`, including `train2017`, `val2017`, and the corresponding `instances_train2017.json` and `instances_val2017.json` annotation files. The dataset was loaded with `torchvision.datasets.CocoDetection`, but the original COCO object categories were not used as training targets. Instead, COCO images served only as natural backgrounds, and the final labels were derived from synthetic shapes added by our own generation pipeline.
 
 ## 3. Train / Validation / Test Split
 
-Describe:
-
-- sorting COCO image ids
-- first `5000` images from `train2017` for training
-- first `1000` images from `val2017` for validation
-- next `1000` images from `val2017` for testing
-- deterministic generation for validation and test with `GLOBAL_SEED = 2025`
-
-Draft notes:
-
-- Validation and test shape generation were made reproducible with a stable hash-based seed function.
+To follow the assignment protocol exactly, COCO image ids were sorted in increasing order before splitting. The first `5000` images from `train2017` were used for training, the first `1000` images from `val2017` were used for validation, and the next `1000` images from `val2017` were used for testing. Validation and test samples were generated deterministically with `GLOBAL_SEED = 2025` and a stable SHA-256 based seed function, so the same image id always produced the same synthetic sample outside the training split.
 
 ## 4. Synthetic Shape Generation
 
+```
 Describe:
 
 - shape types used
@@ -52,19 +31,13 @@ Draft notes:
 - Positive images contain at least one synthetic shape.
 - Negative images contain no target synthetic shape.
 - Planned difficulty settings include opacity variation, easy vs hard overlays, and augmentation-related comparisons.
+```
+
+Synthetic samples were created by drawing random shapes directly onto COCO background images. The current generator supports rectangles, ellipses, and triangles, and varies location, size, color, opacity, and the number of shapes per image. Positive images contain between `1` and `3` synthetic shapes, while negative images contain no target shape; the positive/negative ratio is set to approximately `70/30` as suggested in the assignment. To keep the task nontrivial, the generator already includes multiple difficulty mechanisms such as random opacity, low-contrast colors sampled from local image content, Gaussian blur on inserted shapes, and additive noise on the final image. Part of the synthetic shape placement and bounding-box design was inspired by prior experience from a Teknofest Aviation AI project. However, for this assignment, all synthetic shapes and their corresponding labels were generated fully automatically, and no manual annotation was used.
 
 ## 5. Label Generation Method
 
-Describe:
-
-- how bounding boxes were produced automatically during shape drawing
-- how empty targets were represented for negative images
-- the label convention for the detector
-
-Draft notes:
-
-- All synthetic shapes can share one foreground class label, such as `1`.
-- Negative images should return empty `boxes` and empty `labels` tensors with valid shapes.
+Labels were generated automatically during rendering. For each synthetic shape, the sampled placement parameters directly defined a bounding box in `[x_min, y_min, x_max, y_max]` format, and these boxes were collected into the detection target dictionary. All target shapes shared a single foreground label, `1`, while background was handled implicitly by the detector. For negative images, the target returned valid empty tensors for `boxes` and `labels`, which makes the dataset compatible with object detection training code without any manual editing of annotations.
 
 ## 6. Model Architecture
 
